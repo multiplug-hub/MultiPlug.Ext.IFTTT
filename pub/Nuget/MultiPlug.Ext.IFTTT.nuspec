@@ -1,0 +1,48 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>MultiPlug.Ext.IFTTT</id>
+    <version>1.0.19</version>
+    <title>Collection of useful IFTTT-like components</title>
+    <authors>MultiPlugHub</authors>
+    <owners>MultiPlugHub</owners>
+    <projectUrl>https://github.com/multiplug-hub/MultiPlug.Ext.IFTTT</projectUrl>
+    <icon>images\multiplugico.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An Extension that contained If This Then That (IFTTT) components for MultiPlug</description>
+    <repository type="git" url="https://github.com/multiplug-hub/MultiPlug.Ext.IFTTT" />
+    <license type="expression">MIT</license>
+    <releaseNotes>Application Use:
+* Timers - Tigger timers to start on events, creating a new event once the timer matures.
+* Cache - Cache the result of an event and serve the result via the API endpoint at any time.
+* Counters - Count the recurrence of an event and create a new event once the goal is reached.
+* Aggregators - Aggregate many events into one new event with all the event values aggregated.
+* Injectors - Inject static data to be forwarded on as a new event.
+
+Change Log:
+1.0.19 Code Refectored and released open source to the MultiPlug Community
+1.0.18 Upgrade for MultiPlug.Core 2.2.68
+1.0.16 Enhancement: Applied latest base classes
+1.0.15 Enhancement: Implemented new MultiPlug.Base 1.0.25 contracts.
+1.0.14 Enhancement: Implementation of Data Injectors
+1.0.13 Enhancement: Implementation of Aggregators.
+1.0.12 Enhancement: Timer user interface improvements.
+1.0.11 Bug: AutoReset value wasn't being set to correct value on startup.
+1.0.10 Enhancement: Event Data of Timer now settable. Time, Interval and 1 Type-value pair.
+1.0.9 Bug: Timers would not set to 1 second on system startup.
+</releaseNotes>
+    <copyright>MultiPlug Community</copyright>
+    <tags>MultiPlug IFTTT Logic Triggers Timers Counters Edge Edge_Computing</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="MultiPlug.Base" version="1.0.76" />
+        <dependency id="MultiPlug.Extension.Core" version="1.0.64" />
+        <dependency id="MultiPlug.Core" version="2.2.81" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="images\multiplugico.png" target="images\" />
+    <file src="..\..\src\MultiPlug.Ext.IFTTT\bin\Release\MultiPlug.Ext.IFTTT.dll" target="lib\net472" />
+  </files>
+</package>

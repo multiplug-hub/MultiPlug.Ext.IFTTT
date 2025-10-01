@@ -1,0 +1,77 @@
+﻿@model MultiPlug.Base.Http.EdgeApp
+
+
+<section class="row-fluid">
+
+    <div class="row-fluid">
+        <div class="box">
+            <div class="span3">
+                <a href="#"><img alt="IFTTT Logo" src="@Raw(Model.Context.Paths.Assets)images/ifttt.png"></a>
+            </div>
+            <div class="span6">
+                <p style="font-size:22.75px; padding-top:10px; text-align: center;">Caches</p>
+            </div>
+            <div class="span3">
+            </div>
+        </div>
+    </div>
+
+@Include("MultiPlug.Ext.IFTTT.IFTTTNavigation")
+
+    <div class="row-fluid">
+        <div class="box">
+            <div class="well">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Event ID</th>
+                            <th>Description</th>
+                            <th>View API</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Cache in @Model.Extension.Model.CacheComponents)
+                        {
+                            <tr>
+                                <td><a href="@Raw(Model.Context.Paths.Home)caches/cache/?id=@Cache.Guid">@Cache.ResponseEvent.Id</a></td>
+                                <td><a href="@Raw(Model.Context.Paths.Home)caches/cache/?id=@Cache.Guid">@Cache.ResponseEvent.Description</a></td>
+                                <td><a href="@Raw(Model.Context.Paths.APIs)cache/@Cache.Guid" target="_blank">View</a></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-blue" href="@Raw(Model.Context.Paths.Home)caches/cache/?id=@Cache.Guid"><i class="icon-edit"></i></a>
+                                        <a class="btn btn-red delete-cache" href="@Raw(Model.Context.Paths.Home)caches/cache/delete/?id=@Cache.Guid"><i class="icon-trash"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a class="btn btn-green" href="@Raw(Model.Context.Paths.Home)caches/cache/?id="><i class="icon-plus"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function ApplyDelete(theSelector) {
+        $(theSelector).on('click', '.delete-cache', function (event) {
+            event.preventDefault();
+            var closesttr = $(this).closest("tr");
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('href'),
+                success: function () {
+                    closesttr.remove();
+                }
+            });
+        });
+    }
+
+    ApplyDelete(document);
+</script>

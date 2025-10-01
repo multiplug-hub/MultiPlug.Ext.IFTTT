@@ -1,0 +1,50 @@
+﻿@model MultiPlug.Base.Http.EdgeApp
+
+<div class="row-fluid">
+    <div class="box">
+        <div class="span3">
+            <a href="#"><img alt="IFTTT Logo" src="@Raw(Model.Context.Paths.Assets)images/ifttt.png"></a>
+        </div>
+        <div class="span6">
+            <p style="font-size:22.75px; padding-top:10px; text-align: center;">Multiplug.Ext.IFTTT</p>
+        </div>
+        <div class="span3">
+        </div>
+    </div>
+</div>
+
+@Include("MultiPlug.Ext.IFTTT.IFTTTNavigation")
+
+<section class="row-fluid">
+    <h3></h3>
+    <div class="box">
+        <div class="row-fluid" style="margin-bottom: 20px">
+            <a href="@Raw(Model.Context.Paths.Home)timers/" class="btn btn-blue quick-btn span2">
+                <span class="label">@Model.Extension.Model.TimerCount</span>
+                <i class="icon-time"></i>
+                <span class="quick-btn-title">Timers</span>
+            </a>
+            <a href="@Raw(Model.Context.Paths.Home)caches/" class="btn btn-blue quick-btn span2">
+                <span class="label">@Model.Extension.Model.CacheCount</span>
+                <i class="icon-forward"></i>
+                <span class="quick-btn-title">Cache</span>
+            </a>
+            <a href="@Raw(Model.Context.Paths.Home)counters/" class="btn btn-blue quick-btn span2">
+                <span class="badge">@Model.Extension.Model.CounterCount</span>
+                <i class="icon-signal"></i>
+                <span class="quick-btn-title">Counters</span>
+            </a>
+            <a href="@Raw(Model.Context.Paths.Home)aggregators/" class="btn btn-blue quick-btn span2">
+                <span class="badge">@Model.Extension.Model.AggregatorCount</span>
+                <i class="icon-code-fork"></i>
+                <span class="quick-btn-title">Aggregators</span>
+            </a>
+
+            <a href="@Raw(Model.Context.Paths.Home)injectors/" class="btn btn-blue quick-btn span2">
+                <span class="badge">@Model.Extension.Model.InjectorCount</span>
+                <i class="icon-signin"></i>
+                <span class="quick-btn-title">Injectors</span>
+            </a>
+        </div>
+    </div>
+</section>
